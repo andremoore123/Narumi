@@ -1,5 +1,7 @@
 package com.id.narumi.data.auth
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.id.narumi.domain.Resource
@@ -16,6 +18,15 @@ import kotlinx.coroutines.tasks.await
 class AuthRepository(
     private val firebaseAuth: FirebaseAuth
 ) : IAuthRepository {
+    private val _authState = MutableLiveData<Boolean>()
+    private val authStateListener = FirebaseAuth.AuthStateListener { auth ->
+        _authState.value = auth.currentUser != null
+    }
+
+    init {
+        firebaseAuth.addAuthStateListener(authStateListener)
+    }
+
     override suspend fun login(email: String, password: String): Resource<String> {
         return try {
             val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
@@ -44,5 +55,10 @@ class AuthRepository(
         return UserModel(
             name = currentUser?.displayName ?: "Not Set", email = currentUser?.email ?: "Empty Email"
         )
+    }
+
+    override fun observeLoginState(): LiveData<Boolean> = _authState
+    override fun clearObserver() {
+        firebaseAuth.removeAuthStateListener(authStateListener)
     }
 }

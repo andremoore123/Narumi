@@ -1,5 +1,6 @@
 package com.id.narumi.domain.auth
 
+import androidx.lifecycle.LiveData
 import com.id.narumi.domain.Resource
 
 /**
@@ -14,4 +15,6 @@ interface IAuthRepository {
     suspend fun signOut()
 
     fun getCurrentUser(): UserModel
+    fun observeLoginState(): LiveData<Boolean>
+    fun clearObserver()
 }

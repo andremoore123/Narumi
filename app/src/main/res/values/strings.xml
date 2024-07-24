@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Narumi</string>
+    <string name="text_login">Login</string>
+    <string name="text_sub_login">Let’s Discover the World</string>
+    <string name="text_input_email">Input Your Email Address</string>
+    <string name="text_input_pass">Input Your Password</string>
+    <string name="text_no_account">Do not have an account?</string>
+    <string name="text_register_now">Register now</string>
 </resources>
