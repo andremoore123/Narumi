@@ -105,6 +105,7 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_home_page"
+            android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
