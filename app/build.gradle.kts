@@ -1,21 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.google.gms.google.services)
-    alias(libs.plugins.android.navargs)
-    alias(libs.plugins.ksp.android)
-    alias(libs.plugins.google.crashlytics)
-    id("kotlin-parcelize")
-    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.id.narumi"
     compileSdk = 34
-
-    buildFeatures {
-        viewBinding = true
-    }
 
     defaultConfig {
         applicationId = "com.id.narumi"
@@ -52,39 +42,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.fragment.ktx)
-
-    testImplementation(libs.junit.v413)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.kotlin)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.androidx.core.testing)
-
-
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
-    implementation(libs.koin.core)
-    implementation(libs.koin.core.coroutines)
-    implementation(libs.koin.androidx.workmanager)
-
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.auth)
-
-    implementation(libs.circleimageview)
-
-
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
-
 }
