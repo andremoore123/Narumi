@@ -20,4 +20,11 @@
     <string name="search_your_trip">Search your trip</string>
     <string name="popular_destination">Popular Destination</string>
     <string name="text_logout">Logout</string>
+    <string name="trip_description">Trip Description</string>
+    <string name="trip_duration_title">Trip Duration</string>
+    <string name="trip_date_title">Trip Date</string>
+    <string name="book_now">Book Now</string>
+    <string name="app_copyright">© 2024 adhibuchori Personal Project</string>
+    <string name="trip_cost_title">Trip Cost</string>
+    <string name="trip_description_title">Trip Description</string>
 </resources>

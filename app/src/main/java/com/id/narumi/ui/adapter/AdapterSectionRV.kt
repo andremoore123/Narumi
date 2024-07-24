@@ -11,7 +11,7 @@ import com.id.narumi.domain.trip.TripModel
  * Email: andremoore431@gmail.com
  */
 class AdapterSectionRV(
-    private val onClick: () -> Unit,
+    private val onClick: (TripModel) -> Unit,
 ) : BaseRVAdapter<TripModel, ItemRowTripBinding>(ItemRowTripBinding::inflate) {
     override fun createViewHolder(binding: ItemRowTripBinding): RVViewHolder {
         return RVViewHolder(binding.root)
@@ -19,6 +19,9 @@ class AdapterSectionRV(
 
     override fun initView(item: TripModel) {
         with(binding) {
+            root.setOnClickListener {
+                onClick(item)
+            }
             tvItemRowTripName.text = item.name
             tvItemRowTripLocation.text = item.location
             sivItemRowTripImage.setImageResource(item.imageResId)

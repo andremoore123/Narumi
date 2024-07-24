@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.id.narumi.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailTripFragment"
+            app:destination="@id/detailTripFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.id.narumi.ui.profile.ProfileFragment"
@@ -20,4 +24,13 @@
         android:name="com.id.narumi.ui.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/detailTripFragment"
+        android:name="com.id.narumi.ui.detail_trip.DetailTripFragment"
+        android:label="fragment_detail_trip"
+        tools:layout="@layout/fragment_detail_trip" >
+        <argument
+            android:name="tripId"
+            app:argType="string" />
+    </fragment>
 </navigation>

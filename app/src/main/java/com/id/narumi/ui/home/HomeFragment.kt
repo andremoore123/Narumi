@@ -1,10 +1,13 @@
 package com.id.narumi.ui.home
 
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
 import com.id.narumi.R
 import com.id.narumi.base.BaseFragment
 import com.id.narumi.databinding.FragmentHomeBinding
+import com.id.narumi.ui.MainFragmentDirections
 import com.id.narumi.ui.adapter.AdapterHomePopularRV
 import com.id.narumi.ui.adapter.SectionsPagerAdapter
 import org.koin.android.scope.AndroidScopeComponent
@@ -23,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     override fun initView() {
         viewModel.fetchAllData()
         rvPopularHomeAdapter = AdapterHomePopularRV {
-
+            navigateToDetail(it.uuid)
         }
 
         setTabLayout()
@@ -49,9 +52,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     private fun setTabLayout() {
         viewModel.popularList.observe(viewLifecycleOwner) {
             val fragments = listOf(
-                SectionFragment.newInstance(viewModel.allTrips.value ?: listOf()),
-                SectionFragment.newInstance(viewModel.popularList.value ?: listOf()),
-                SectionFragment.newInstance(viewModel.recommendedList.value ?: listOf()),
+                SectionFragment.newInstance(viewModel.allTrips.value ?: listOf()) {
+                    navigateToDetail(it.uuid)
+                },
+                SectionFragment.newInstance(viewModel.popularList.value ?: listOf()){
+                    navigateToDetail(it.uuid)
+                },
+                SectionFragment.newInstance(viewModel.recommendedList.value ?: listOf()){
+                    navigateToDetail(it.uuid)
+                },
             )
 
             val adapter = SectionsPagerAdapter(requireActivity(), fragments)
@@ -66,5 +75,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
                 }
             }.attach()
         }
+    }
+
+    private fun navigateToDetail(id: String) {
+        val actions = HomeFragmentDirections.actionHomeFragmentToDetailTripFragment(id)
+        findNavController().navigate(actions)
     }
 }
