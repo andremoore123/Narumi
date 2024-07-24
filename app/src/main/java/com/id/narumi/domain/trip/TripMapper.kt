@@ -1,5 +1,6 @@
 package com.id.narumi.domain.trip
 
+import com.id.narumi.data.transaction.model.TransactionEntity
 import com.id.narumi.data.trip.model.TripResponse
 
 /**
@@ -20,5 +21,15 @@ object TripMapper {
         cost = q.cost,
         description = q.description,
         category = q.category
+    )
+
+    fun mapTripModelToTransaction(q: TripModel, totalCost: Int) = TransactionEntity(
+        uuid = q.uuid,
+        imageResId = q.imageResId,
+        name = q.name,
+        location = q.location,
+        orderDate = q.orderDate,
+        duration = q.duration,
+        totalCost = totalCost
     )
 }

@@ -1,5 +1,6 @@
 package com.id.narumi.ui.detail_trip
 
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.id.narumi.base.BaseFragment
 import com.id.narumi.databinding.FragmentDetailTripBinding
@@ -41,6 +42,7 @@ class DetailTripFragment : BaseFragment<FragmentDetailTripBinding, DetailTripVie
     }
 
     private fun navigateToCheckout(id: String) {
-
+        val action = DetailTripFragmentDirections.actionDetailTripFragmentToCheckoutFragment(id)
+        findNavController().navigate(action)
     }
 }

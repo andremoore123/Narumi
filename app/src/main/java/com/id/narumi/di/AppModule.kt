@@ -7,6 +7,8 @@ import com.id.narumi.ui.auth.login.LoginFragment
 import com.id.narumi.ui.auth.login.LoginViewModel
 import com.id.narumi.ui.auth.register.RegisterFragment
 import com.id.narumi.ui.auth.register.RegisterViewModel
+import com.id.narumi.ui.checkout.CheckoutFragment
+import com.id.narumi.ui.checkout.CheckoutViewModel
 import com.id.narumi.ui.detail_trip.DetailTripFragment
 import com.id.narumi.ui.detail_trip.DetailTripViewModel
 import com.id.narumi.ui.home.HomeFragment
@@ -30,6 +32,7 @@ object AppModule: BaseModule {
         scope<HomeFragment> { scoped { HomeViewModel(get(), get()) } }
         scope<ProfileFragment> { scoped { ProfileViewModel(get()) } }
         scope<DetailTripFragment> { scoped { DetailTripViewModel(get()) } }
+        scope<CheckoutFragment> { scoped { CheckoutViewModel(get(), get()) } }
     }
 
     override fun getModules(): List<Module> {

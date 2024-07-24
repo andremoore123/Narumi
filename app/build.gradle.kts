@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp.android)
     alias(libs.plugins.google.crashlytics)
     id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -73,5 +74,10 @@ dependencies {
     implementation(libs.firebase.auth)
 
     implementation(libs.circleimageview)
+
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 
 }
