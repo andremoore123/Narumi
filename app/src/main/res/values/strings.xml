@@ -35,4 +35,5 @@
     <string name="choose_payment_method">Choose Payment Method</string>
     <string name="trip_cost">Trip Cost</string>
     <string name="pay">Pay</string>
+    <string name="text_history">History</string>
 </resources>

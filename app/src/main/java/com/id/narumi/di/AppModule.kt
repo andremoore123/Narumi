@@ -11,6 +11,8 @@ import com.id.narumi.ui.checkout.CheckoutFragment
 import com.id.narumi.ui.checkout.CheckoutViewModel
 import com.id.narumi.ui.detail_trip.DetailTripFragment
 import com.id.narumi.ui.detail_trip.DetailTripViewModel
+import com.id.narumi.ui.history.HistoryFragment
+import com.id.narumi.ui.history.HistoryViewModel
 import com.id.narumi.ui.home.HomeFragment
 import com.id.narumi.ui.home.HomeViewModel
 import com.id.narumi.ui.profile.ProfileFragment
@@ -33,6 +35,7 @@ object AppModule: BaseModule {
         scope<ProfileFragment> { scoped { ProfileViewModel(get()) } }
         scope<DetailTripFragment> { scoped { DetailTripViewModel(get()) } }
         scope<CheckoutFragment> { scoped { CheckoutViewModel(get(), get()) } }
+        scope<HistoryFragment> { scoped { HistoryViewModel(get()) } }
     }
 
     override fun getModules(): List<Module> {
