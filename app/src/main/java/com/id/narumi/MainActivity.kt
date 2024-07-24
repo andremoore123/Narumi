@@ -1,6 +1,7 @@
 package com.id.narumi
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.id.narumi.databinding.ActivityMainBinding
+import com.id.narumi.ui.MainFragmentDirections
 import com.id.narumi.ui.auth.login.LoginFragmentDirections
 import com.id.narumi.ui.auth.register.RegisterFragmentDirections
 import org.koin.android.scope.AndroidScopeComponent
@@ -59,7 +61,12 @@ class MainActivity : AppCompatActivity(), AndroidScopeComponent {
     }
 
     private fun navigateToLogin() {
-
+        val currentDestination = mainNavController.currentDestination?.id
+        when (currentDestination) {
+            R.id.mainFragment -> {
+                mainNavController.navigate(MainFragmentDirections.actionMainFragmentToLoginFragment())
+            }
+        }
     }
 
     override val scope: Scope by activityScope()
