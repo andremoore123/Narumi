@@ -11,7 +11,7 @@ import com.id.narumi.domain.trip.TripModel
  * Email: andremoore431@gmail.com
  */
 class AdapterHomePopularRV(
-    private val onClick: () -> Unit
+    private val onClick: (TripModel) -> Unit
 ): BaseRVAdapter<TripModel, ItemRowTripPopularDestinationBinding>(
     ItemRowTripPopularDestinationBinding::inflate
 ) {
@@ -22,7 +22,7 @@ class AdapterHomePopularRV(
     override fun initView(item: TripModel) {
         with(binding) {
             root.setOnClickListener {
-                onClick()
+                onClick(item)
             }
             tvItemRowPopularDestinationTripName.text = item.name
             sivItemRowPopularDestinationTripImage.setImageResource(item.imageResId)

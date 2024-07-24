@@ -12,7 +12,7 @@ import com.id.narumi.databinding.FragmentSectionBinding
 import com.id.narumi.domain.trip.TripModel
 import com.id.narumi.ui.adapter.AdapterSectionRV
 
-class SectionFragment : Fragment() {
+class SectionFragment(private val onDetailClick: (TripModel) -> Unit) : Fragment() {
 
     private lateinit var binding: FragmentSectionBinding
     private lateinit var rvAdapter: AdapterSectionRV
@@ -20,8 +20,8 @@ class SectionFragment : Fragment() {
     companion object {
         private const val ARG_TRIP_LIST = "arg_trip_list"
 
-        fun newInstance(tripList: List<TripModel>): SectionFragment {
-            val fragment = SectionFragment()
+        fun newInstance(tripList: List<TripModel>, onDetailClick: (TripModel) -> Unit): SectionFragment {
+            val fragment = SectionFragment(onDetailClick)
             val bundle = Bundle().apply {
                 putParcelableArrayList(ARG_TRIP_LIST, ArrayList(tripList))
             }
@@ -36,7 +36,7 @@ class SectionFragment : Fragment() {
     ): View {
         binding = FragmentSectionBinding.inflate(inflater, container, false)
         rvAdapter = AdapterSectionRV {
-
+            onDetailClick(it)
         }
         binding.fsRvSection.run {
             adapter = rvAdapter
