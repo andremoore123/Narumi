@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.0"
+firebaseBom = "33.1.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -10,7 +11,6 @@ material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 googleGmsGoogleServices = "4.4.2"
-firebaseAuth = "23.0.0"
 koinVersion = "3.6.0-wasm-alpha2"
 kspVersion = "1.9.0-1.0.13"
 safeArgsVersion = "2.7.7"
@@ -20,9 +20,14 @@ lifecycleViewmodelKtx = "2.8.3"
 fragmentKtx = "1.8.1"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
+crashlyticsVer = "3.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth"}
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -30,7 +35,6 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
@@ -47,6 +51,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+google-crashlytics = {id = "com.google.firebase.crashlytics", version.ref = "crashlyticsVer"}
 ksp-android = {id = "com.google.devtools.ksp", version.ref = "kspVersion"}
 android-navargs = { id = "androidx.navigation.safeargs", version.ref = "safeArgsVersion"}
 

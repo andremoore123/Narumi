@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.android.navargs)
     alias(libs.plugins.ksp.android)
+    alias(libs.plugins.google.crashlytics)
 }
 
 android {
@@ -49,7 +50,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.auth)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
@@ -65,4 +65,9 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.androidx.workmanager)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
 }
