@@ -32,5 +32,22 @@
         <argument
             android:name="tripId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailTripFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.id.narumi.ui.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <argument
+            android:name="tripId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/checkoutFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

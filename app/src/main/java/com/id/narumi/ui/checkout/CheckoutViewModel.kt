@@ -36,6 +36,8 @@ class CheckoutViewModel(
         _itemPax.value = if ((_itemPax.value ?: 1) > 1) _itemPax.value?.minus(1) else 1
     }
 
+    fun countTotalCost(itemPax: Int): Int = _tripData.value?.cost?.times(itemPax) ?: 0
+
     fun checkout() {
         viewModelScope.launch(Dispatchers.IO) {
             val tripReserved = _tripData.value!!
