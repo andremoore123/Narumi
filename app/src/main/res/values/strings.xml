@@ -11,4 +11,8 @@
     <string name="text_input_name">Input Your Name</string>
     <string name="text_login_now">Login Now</string>
     <string name="text_have_account">Already have an account?</string>
+
+    <string name="navigation_home">Home</string>
+    <string name="navigation_history">History</string>
+    <string name="navigation_profile">Profile</string>
 </resources>
