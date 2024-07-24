@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Narumi</string>
+    <string name="text_login">Login</string>
+    <string name="text_sub_login">Let’s Discover the World</string>
+    <string name="text_input_email">Input Your Email Address</string>
+    <string name="text_input_pass">Input Your Password</string>
+    <string name="text_no_account">Do not have an account?</string>
+    <string name="text_register_now">Register now</string>
+    <string name="text_register">Register</string>
+    <string name="text_sub_register">Register and explore</string>
+    <string name="text_input_name">Input Your Name</string>
+    <string name="text_login_now">Login Now</string>
+    <string name="text_have_account">Already have an account?</string>
+
+    <string name="navigation_home">Home</string>
+    <string name="navigation_history">History</string>
+    <string name="navigation_profile">Profile</string>
+    <string name="welcome_message">Welcome, %s</string>
+    <string name="explore_message">Explore the best places in the world!</string>
+    <string name="search_your_trip">Search your trip</string>
+    <string name="popular_destination">Popular Destination</string>
+    <string name="text_logout">Logout</string>
+    <string name="trip_description">Trip Description</string>
+    <string name="trip_duration_title">Trip Duration</string>
+    <string name="trip_date_title">Trip Date</string>
+    <string name="book_now">Book Now</string>
+    <string name="app_copyright">© 2024 adhibuchori Personal Project</string>
+    <string name="trip_cost_title">Trip Cost</string>
+    <string name="trip_description_title">Trip Description</string>
+    <string name="transaction_detail">Transaction Detail</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="trip_name_title">Trip Name</string>
+    <string name="trip_location_title">Trip Location</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="choose_payment_method">Choose Payment Method</string>
+    <string name="trip_cost">Trip Cost</string>
+    <string name="pay">Pay</string>
+    <string name="text_history">History</string>
 </resources>
