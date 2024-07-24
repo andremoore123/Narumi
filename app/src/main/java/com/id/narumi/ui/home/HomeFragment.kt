@@ -1,31 +1,51 @@
 package com.id.narumi.ui.home
 
-import androidx.fragment.app.viewModels
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.id.narumi.R
+import com.id.narumi.base.BaseFragment
+import com.id.narumi.databinding.FragmentHomeBinding
+import com.id.narumi.ui.adapter.AdapterHomePopularRV
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.scope.Scope
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
+    FragmentHomeBinding::inflate
+), AndroidScopeComponent {
+    override val viewModel: HomeViewModel by viewModel()
+    override val scope: Scope by fragmentScope()
 
-    companion object {
-        fun newInstance() = HomeFragment()
+    private lateinit var rvPopularHomeAdapter: AdapterHomePopularRV
+
+    override fun initView() {
+        rvPopularHomeAdapter = AdapterHomePopularRV {
+
+        }
+        with(binding) {
+            rvHomePagePopularDestination.run {
+                adapter = rvPopularHomeAdapter
+                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            }
+        }
     }
 
-    private val viewModel: HomeViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
+    override fun observeData() {
+        with(viewModel) {
+            popularList.observe(viewLifecycleOwner) {
+                rvPopularHomeAdapter.insertData(it)
+            }
+            userData.observe(viewLifecycleOwner) {
+                val welcomeMessage = resources.getString(R.string.welcome_message, it.name)
+                binding.tvHomePageWelcomeMessage.text = welcomeMessage
+            }
+        }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    override fun listenData() {
+        with(viewModel) {
+            fetchPopularList()
+            fetchProfileData()
+        }
     }
 }

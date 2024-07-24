@@ -7,6 +7,8 @@ import com.id.narumi.ui.auth.login.LoginFragment
 import com.id.narumi.ui.auth.login.LoginViewModel
 import com.id.narumi.ui.auth.register.RegisterFragment
 import com.id.narumi.ui.auth.register.RegisterViewModel
+import com.id.narumi.ui.home.HomeFragment
+import com.id.narumi.ui.home.HomeViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -21,6 +23,7 @@ object AppModule: BaseModule {
         scope<LoginFragment> {scoped { LoginViewModel(get()) }}
         scope<MainActivity> { scoped { MainViewModel(get()) } }
         scope<RegisterFragment> { scoped { RegisterViewModel(get()) } }
+        scope<HomeFragment> { scoped { HomeViewModel(get(), get()) } }
     }
 
     override fun getModules(): List<Module> {

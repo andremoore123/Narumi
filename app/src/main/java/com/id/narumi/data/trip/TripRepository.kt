@@ -23,4 +23,8 @@ class TripRepository: ITripRepository {
             mapTripResponseToModel(it)
         }
     }
+
+    override fun fetchTripById(id: String): TripModel? = source.find { it.uuid == id }?.let {
+        mapTripResponseToModel(it)
+    }
 }
