@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.navargs)
     alias(libs.plugins.ksp.android)
     alias(libs.plugins.google.crashlytics)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -70,4 +71,7 @@ dependencies {
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
+
+    implementation(libs.circleimageview)
+
 }
