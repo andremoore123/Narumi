@@ -2,6 +2,7 @@ package com.id.narumi.ui.auth.register
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.id.narumi.domain.Resource
+import com.id.narumi.domain.analytic.IAnalyticRepository
 import com.id.narumi.domain.auth.IAuthRepository
 import com.id.narumi.ui.auth.login.LoginViewModel
 import com.id.narumi.util.getOrAwaitValue
@@ -28,12 +29,15 @@ class RegisterViewModelTest {
     @Mock
     private lateinit var authRepository: IAuthRepository
 
+    @Mock
+    private lateinit var analyticRepository: IAnalyticRepository
+
     private lateinit var viewModel: RegisterViewModel
 
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        viewModel = RegisterViewModel(authRepository)
+        viewModel = RegisterViewModel(authRepository, analyticRepository)
     }
 
     // Registering a user with valid name, email, and password should post success message
