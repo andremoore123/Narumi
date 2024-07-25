@@ -38,10 +38,67 @@ An Travel App that will give you suggestion about a trip and you can order it di
 
 
 
+## Testing
 
+### LoginViewModelTest
 
-## Following Packages
+- **Setup:** Initializes LoginViewModel with mocked IAuthRepository and IAnalyticRepository.
+- **Test 1: Login with valid credentials updates message with success data**
+  - **Description:** Verifies that logging in with valid credentials updates the message with success data.
+  - **Assertion:** Checks that the message is "Login successful".
+- **Test 2: Login with empty email and password**
+  - **Description:** Verifies that logging in with empty email and password handles errors gracefully.
+  - **Assertion:** Checks that the message is "Email and password cannot be empty".
 
+### RegisterViewModelTest
+
+- **Setup:** Initializes RegisterViewModel with mocked IAuthRepository and IAnalyticRepository.
+- **Test 1: Register with valid credentials posts success message**
+  - **Description:** Verifies that registering with valid credentials posts a success message.
+  - **Assertion:** Checks that the message is "Registration successful".
+- **Test 2: Register with empty fields handles gracefully**
+  - **Description:** Verifies that registering with empty fields handles errors gracefully.
+  - **Assertion:** Checks that the message is "Fields cannot be empty".
+
+### CheckoutViewModelTest
+
+- **Setup:** Initializes CheckoutViewModel with mocked ITripRepository and ITransactionRepository.
+- **Test 1: Fetch trip by ID updates LiveData**
+  - **Description:** Verifies that fetching a trip by ID updates LiveData correctly.
+  - **Assertion:** Checks that the trip data matches the expected TripModel.
+- **Test 2: Fetch trip by ID when trip does not exist**
+  - **Description:** Verifies that fetching a trip by a nonexistent ID handles null gracefully.
+  - **Assertion:** Checks that the trip data is null.
+
+### DetailTripViewModelTest
+
+- **Setup:** Initializes DetailTripViewModel with mocked ITripRepository.
+- **Test 1: Fetch trip by ID successfully retrieves a trip and updates tripData**
+  - **Description:** Verifies that fetching a trip by ID updates tripData correctly.
+  - **Assertion:** Checks that the trip data matches the expected TripModel.
+- **Test 2: Fetch trip by ID with an invalid or non-existent ID**
+  - **Description:** Verifies that fetching a trip by an invalid or nonexistent ID handles null gracefully.
+  - **Assertion:** Checks that the trip data is null.
+
+### ProfileViewModelTest
+
+- **Setup:** Initializes ProfileViewModel with mocked IAuthRepository.
+- **Test 1: Fetching profile data updates userData LiveData with current user information**
+  - **Description:** Verifies that fetching profile data updates userData correctly.
+  - **Assertion:** Checks that the user data matches the expected UserModel.
+- **Test 2: Fetch profile data handles null or invalid user data gracefully**
+  - **Description:** Verifies that fetching profile data with null or invalid user data handles null gracefully.
+  - **Assertion:** Checks that the user data is null.
+
+### HomeViewModelTest
+
+- **Setup:** Initializes HomeViewModel with mocked ITripRepository and IAuthRepository.
+- **Test 1: Fetching all data populates popular, recommended, all trips, and user data lists**
+  - **Description:** Verifies that fetching all data populates popular, recommended, all trips, and user data lists correctly.
+  - **Assertion:** Checks that the lists and user data match the expected values.
+- **Test 2: Fetching data when repositories return empty lists**
+  - **Description:** Verifies that fetching data when repositories return empty lists handles empty lists gracefully.
+  - **Assertion:** Checks that the lists are empty and the user data matches the expected UserModel.
 
 ## Installation
 
