@@ -28,9 +28,9 @@ import org.koin.dsl.module
  */
 object AppModule: BaseModule {
     private val viewModelModules = module {
-        scope<LoginFragment> {scoped { LoginViewModel(get()) }}
+        scope<LoginFragment> {scoped { LoginViewModel(get(), get()) }}
         scope<MainActivity> { scoped { MainViewModel(get()) } }
-        scope<RegisterFragment> { scoped { RegisterViewModel(get()) } }
+        scope<RegisterFragment> { scoped { RegisterViewModel(get(), get()) } }
         scope<HomeFragment> { scoped { HomeViewModel(get(), get()) } }
         scope<ProfileFragment> { scoped { ProfileViewModel(get()) } }
         scope<DetailTripFragment> { scoped { DetailTripViewModel(get()) } }

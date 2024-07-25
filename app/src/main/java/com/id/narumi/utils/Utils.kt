@@ -10,6 +10,9 @@ import java.util.Locale
  * Email: andremoore431@gmail.com
  */
 object Utils {
+    const val ANALYTICS_BUTTON = "button_name"
+    const val ANALYTIC_ONCLICK = "button_click"
+
     fun formatCurrency(amount: Int): String {
         val format = NumberFormat.getCurrencyInstance(Locale("en", "US"))
         format.maximumFractionDigits = 0
