@@ -1,12 +1,11 @@
 package com.id.narumi.ui.auth.login
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.id.narumi.domain.Resource
+import com.id.narumi.domain.analytic.IAnalyticRepository
 import com.id.narumi.domain.auth.IAuthRepository
 import com.id.narumi.util.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -32,12 +31,15 @@ class LoginViewModelTest {
     @Mock
     private lateinit var authRepository: IAuthRepository
 
+    @Mock
+    private lateinit var analyticRepository: IAnalyticRepository
+
     private lateinit var viewModel: LoginViewModel
 
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        viewModel = LoginViewModel(authRepository)
+        viewModel = LoginViewModel(authRepository, analyticRepository)
     }
 
     // Login with valid credentials updates message with success data
