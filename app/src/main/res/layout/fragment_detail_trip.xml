@@ -40,7 +40,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_detail_page_container_curved"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="75dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/iv_detail_page_trip_image"
         app:layout_constraintEnd_toEndOf="parent"
